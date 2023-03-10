@@ -2,11 +2,13 @@ import express from "express"
 import expressAsyncHandler from "express-async-handler"
 import DBMS from "../Dams/Dbms"
 import crypto from "crypto"
+import { isAuth } from "../utils/middlewares"
 
 const router = express.Router()
 
 router.get(
   "/notes",
+  isAuth,
   expressAsyncHandler(async (req, res) => {
     const notes = await DBMS.getNotes()
     res.status(200).json(notes)
@@ -15,6 +17,7 @@ router.get(
 
 router.post(
   "/note",
+  isAuth,
   expressAsyncHandler(async (req, res) => {
     const id = crypto.randomUUID()
     const { title, content, user_id } = req.body

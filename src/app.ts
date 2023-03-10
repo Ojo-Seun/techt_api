@@ -4,6 +4,7 @@ import cors from "cors"
 import rateLimit from "express-rate-limit"
 import { Request, Response, NextFunction } from "express"
 import notesRouter from "./Notes/notes.router"
+import usersRouter from "./Users/users.router"
 
 const app = expres()
 dotenv.config()
@@ -20,7 +21,7 @@ const apiLimit = rateLimit({
 app.use(apiLimit)
 
 app.use("/api", notesRouter)
-
+app.use("/api", usersRouter)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const status = err.name && err.name === "validationError" ? 400 : 500
   res.status(status).send({ message: err.message })

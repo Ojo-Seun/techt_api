@@ -1,4 +1,12 @@
 {
   "notes": [],
-  "users": []
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "isAdmin": true,
+      "password": "$2b$12$s0y69VJB8d9BeU8vrfUH5.4GHqMTogFhtPWa/KdRYXxu8KoNsQ4ny",
+      "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e"
+    }
+  ]
 }

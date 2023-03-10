@@ -15,7 +15,7 @@ router.post(
     const { name, email, isAdmin, password } = await req.body
 
     // Validate Inputs
-    if (!name || !email || password) {
+    if (!name || !email || !password) {
       throw new Error("Invalid Input")
     }
 

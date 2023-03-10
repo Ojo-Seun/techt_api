@@ -16,7 +16,8 @@ class DBMS {
     const db = await this.readFromDb()
     let notes = db["notes"]
     notes = [...notes, note]
-    await writeFile("./src/Dams/db.json", JSON.stringify(notes, null, 2)).catch((err) => {
+
+    await writeFile("./src/Dams/db.json", JSON.stringify({ ...db, notes }, null, 2)).catch((err) => {
       if (err) {
         throw new Error(`${err.message}`)
       }
@@ -30,7 +31,7 @@ class DBMS {
 
     let users = db["users"]
     users = [...users, user]
-    await writeFile("./src/Dams/db.json", JSON.stringify(users, null, 2)).catch((err) => {
+    await writeFile("./src/Dams/db.json", JSON.stringify({ ...db, users }, null, 2)).catch((err) => {
       if (err) {
         throw new Error(`${err.message}`)
       }
