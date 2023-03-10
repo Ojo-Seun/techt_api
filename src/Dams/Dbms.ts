@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "fs/promises"
 import { Note, Notes, User, Users } from "../utils/type"
 
-class DMS {
+class DBMS {
   static readFromDb = async () => {
     const db = await readFile("./src/Dams/db.json", "utf-8")
     return JSON.parse(db)
@@ -22,7 +22,7 @@ class DMS {
       }
     })
 
-    return notes
+    return true
   }
 
   static createUser = async (user: User) => {
@@ -36,8 +36,8 @@ class DMS {
       }
     })
 
-    return users
+    return { name: user.name, email: user.email, user_id: user.user_id, isAdmin: user.isAdmin }
   }
 }
 
-export default DMS
+export default DBMS

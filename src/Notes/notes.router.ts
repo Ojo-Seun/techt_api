@@ -1,6 +1,6 @@
 import express from "express"
 import expressAsyncHandler from "express-async-handler"
-import DMS from "../Dams/Dms"
+import DBMS from "../Dams/Dbms"
 import crypto from "crypto"
 
 const router = express.Router()
@@ -8,7 +8,7 @@ const router = express.Router()
 router.get(
   "/notes",
   expressAsyncHandler(async (req, res) => {
-    const notes = await DMS.getNotes()
+    const notes = await DBMS.getNotes()
     res.status(200).json(notes)
   })
 )
@@ -22,13 +22,13 @@ router.post(
       throw new Error("Invalid Input")
     }
 
-    const notes = await DMS.createNote({ title, content, user_id, id })
+    const result = await DBMS.createNote({ title, content, user_id, id })
 
-    if (notes.length === 0) {
+    if (!result) {
       throw new Error("Note Not Created")
     }
 
-    res.status(201).json(notes)
+    res.status(201).json({ message: "Note Created" })
   })
 )
 
