@@ -1,5 +1,12 @@
 {
-  "notes": [],
+  "notes": [
+    {
+      "title": "Typescript",
+      "content": "Typescript is a superset of javascript",
+      "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e",
+      "id": "6e0834bd-720c-4602-b173-34a7dafa3788"
+    }
+  ],
   "users": [
     {
       "name": "admin",
@@ -8,5 +15,6 @@
       "password": "$2b$12$s0y69VJB8d9BeU8vrfUH5.4GHqMTogFhtPWa/KdRYXxu8KoNsQ4ny",
       "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e"
     }
-  ]
+  ],
+  "newNotes": []
 }

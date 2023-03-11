@@ -15,8 +15,20 @@ router.get(
   })
 )
 
+router.get(
+  "/note/:id",
+  expressAsyncHandler(async (req, res) => {
+    const id = req.params.id
+
+    const note = await DBMS.getNoteById(id)
+    if (note) {
+      res.status(200).json(note)
+    }
+  })
+)
+
 router.post(
-  "/note",
+  "/create_note",
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const id = crypto.randomUUID()
@@ -32,6 +44,37 @@ router.post(
     }
 
     res.status(201).json({ message: "Note Created" })
+  })
+)
+
+router.put(
+  "/update_note/:id",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const id = req.params.id
+    const { content } = req.body
+
+    if (!id || !content) {
+      throw new Error("Please Privide note id and new content")
+    }
+    const note = await DBMS.updateNote(id, content)
+
+    if (note) {
+      res.status(201).json(note)
+    }
+  })
+)
+
+router.delete(
+  "/delete_note/:id",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const id = req.params.id
+    const result = await DBMS.deleteNote(id)
+
+    if (result === true) {
+      res.status(200).json({ message: "Note Deleted" })
+    }
   })
 )
 
