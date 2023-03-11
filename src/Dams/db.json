@@ -1,26 +1,8 @@
 {
   "notes": [
     {
-      "title": "Typescript",
-      "content": "Typescript is a superset of javascript",
-      "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e",
-      "id": "6e0834bd-720c-4602-b173-34a7dafa3788"
-    },
-    {
-      "title": "Typescript",
-      "content": "Typescript is a superset of javascript",
-      "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e",
-      "id": "092c839c-ad26-4cc6-b360-9b98b13c3d97"
-    },
-    {
-      "title": "Typescript",
-      "content": "Typescript is a superset of javascript",
-      "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e",
-      "id": "90562ecb-28df-4331-b756-0825589661a0"
-    },
-    {
-      "title": "Typescript",
-      "content": "Typescript is a superset of javascript",
+      "title": "React",
+      "content": "React is a JavaScript Library use to create reuseable UI component for SPA",
       "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e",
       "id": "26ab0244-c6c0-4b70-97f6-8e37ae8ee9db"
     }
@@ -33,6 +15,5 @@
       "password": "$2b$12$s0y69VJB8d9BeU8vrfUH5.4GHqMTogFhtPWa/KdRYXxu8KoNsQ4ny",
       "user_id": "b1b8755c-29f3-4c8b-a0c3-86407236342e"
     }
-  ],
-  "newNotes": []
+  ]
 }

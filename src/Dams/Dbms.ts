@@ -52,7 +52,7 @@ class DBMS {
     return { name: user.name, email: user.email, user_id: user.user_id, isAdmin: user.isAdmin }
   }
 
-  static updateNote = async (id: string, content: string) => {
+  static updateNote = async (id: string, content: string, title: string) => {
     const db = await this.readFromDb()
     let notes: Notes = db["notes"]
     const oldNote = notes.find((x) => x.id === id)
@@ -60,7 +60,7 @@ class DBMS {
       throw new Error("Note Not Found")
     }
 
-    const newNote = { ...oldNote, content: content }
+    const newNote = { ...oldNote, content, title: title || oldNote.title }
 
     const newNotes: Notes = []
     for (let i = 0; i < notes.length; i++) {

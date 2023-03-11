@@ -52,12 +52,12 @@ router.put(
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const id = req.params.id
-    const { content } = req.body
+    const { content, title } = req.body
 
     if (!id || !content) {
       throw new Error("Please Privide note id and new content")
     }
-    const note = await DBMS.updateNote(id, content)
+    const note = await DBMS.updateNote(id, content, title)
 
     if (note) {
       res.status(201).json(note)
